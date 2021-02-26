@@ -10,38 +10,44 @@ package practica.lab2;
  * @author SANDOVAL
  */
 public class Procedimientos {
-int media;
-    String varianza;   
+
+    int media;
+    double varianza;
+
     public int Media(int[] arreglo) {
         int suma = 0;
+
         for (int i = 0; i < arreglo.length; i++) {
 
             suma = arreglo[i] + suma;
 
         }
-        media = (suma / arreglo.length);
+        media = Math.round(suma / arreglo.length);
         return media;
+
     }
 
     public int Varianza(int[] arreglo) {
-        Procedimientos model = new Procedimientos();
-        double sumatoria;
-        
+        double sumatoria = 0;
+
         for (int i = 0; i < arreglo.length; i++) {
 
-            sumatoria = Math.pow((arreglo[i] - media), 2);
-            varianza = varianza + arreglo[i];
+            sumatoria = sumatoria + Math.pow((arreglo[i] - this.media), 2);
+            System.out.println(sumatoria);
+
         }
-return (Integer.parseInt(varianza)/(arreglo.length-1));
+
+        varianza = Math.round(sumatoria / arreglo.length);
+
+        return (int) varianza;
+
     }
-public double DesviacionEstandar(){
 
-double desviacion=Math.sqrt(Double.parseDouble(varianza));
+    public int DesviacionEstandar() {
 
-double redondeo=Math.rint(desviacion*100)/100;
-return redondeo;
-    
-}
-  
+        double desviacion = Math.sqrt(varianza);
 
+        return (int) desviacion;
+
+    }
 }
