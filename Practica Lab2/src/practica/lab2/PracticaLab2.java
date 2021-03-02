@@ -28,6 +28,7 @@ public class PracticaLab2 {
         System.out.println();
         System.out.println("1.Programa");
         System.out.println("2.Programa");
+        System.out.println("4.Programa");
 
         System.out.print("Digite la opcion ");
         opc = teclado.nextLine();
@@ -54,13 +55,41 @@ public class PracticaLab2 {
                 System.out.println("Resultado Desviacion Estandar " + model.DesviacionEstandar());
                 break;
             case "2":
-                
-                
-                
-                
-                
-                
-        }
-    }
 
+                model.Programa2();
+                break;
+            case "4":
+                Scanner sc = new Scanner(System.in);
+                int num;
+                System.out.print("Ingrese el numero de personas a las que vamos a tomarles datos: ");
+                num = sc.nextInt();
+
+                Persona arreglo1[] = new Persona[num];
+                String nombre;
+                int edad;
+                double cedula;
+
+                for (int i = 0; i < arreglo1.length; i++) {
+                    sc.nextLine();
+                    System.out.print("Ingrese el nombre: ");
+                    nombre = sc.nextLine();
+                    System.out.print("Ingrese la edad: ");
+                    edad = sc.nextInt();
+                    System.out.print("Ingrese la cedula: ");
+                    cedula = sc.nextDouble();
+                    arreglo1[i] = new Persona(cedula, nombre, edad);
+
+                }
+                for (int j = 0; j < arreglo1.length; j++) {
+                    System.out.println("-----------------------");
+                    System.out.println("Cedula   nombre   edad  ");
+                    System.out.println(arreglo1[j].getcedula() + "   " + arreglo1[j].getnombre() + "   " + arreglo1[j].getedad());
+
+                    break;
+
+                }
+
+        }
+
+    }
 }
